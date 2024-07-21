@@ -1,5 +1,4 @@
 <?php
-/* INDEX PHP PARA IMAGENES DE USUARIO */
     session_start();
     include('conexion.php');
 

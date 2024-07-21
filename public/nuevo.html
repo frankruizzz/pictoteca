@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Nueva Imagen</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -18,12 +18,7 @@
                     <span>Inicio</span>
                 </a>
             </div>
-            <div class="header-img">
-                <a href="nuevo.html">
-                    <img src="img/nuevo.png" alt="Crear nueva">
-                    <span>Crear</span>
-                </a>
-            </div>
+            <div id="crea-div"></div>
             <div class="header-img">
                 <a href="explora.html">
                     <img src="img/explora.png" alt="Explorar">
@@ -33,24 +28,42 @@
             <div id="session_info"></div>
         </div>
     </header>
-    <h1>Crea una publicación</h1>
-    <form action="/php/subir_imagen.php" method="post" enctype="multipart/form-data">
-        <label for="nombre">Nombre de la Imagen:</label>
+    <main class="nuevo-main">
+    <h1 id="crea">Crea una publicación</h1>
+    <form class="nuevo-form" action="/php/subir_imagen.php" method="post" enctype="multipart/form-data">
+        <label for="nombre">Nombre de la Imagen</label>
         <input type="text" id="nombre" name="nombre" required><br><br>
 
-        <label for="descripcion">Descripción:</label>
+        <label for="descripcion">Descripción</label>
         <textarea id="descripcion" name="descripcion" required></textarea><br><br>
         
-        <label for="nombre">Etiquetas (hasta tres como máximo):</label> <br>
+        <label for="nombre">Etiquetas (hasta tres como máximo)</label> <br>
         <input type="text" id="nombre" name="etiqueta1">
         <input type="text" id="nombre" name="etiqueta2">
         <input type="text" id="nombre" name="etiqueta3"><br><br>
 
-        <label for="archivo">Seleccionar Imagen:</label>
-        <input type="file" id="archivo" name="archivo" accept="image/png, image/jpeg" required><br><br>
+        <label for="archivo">Seleccionar Imagen</label>
+        <input type="file" id="archivo" name="archivo" accept="image/png, image/jpeg, image/jfif" required><br><br>
 
         <input type="submit" value="Subir Imagen">
     </form>
+    </main>
     <script src="js/session2.js"></script>
+    <script src="js/crear.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+        fetch('/php/username.php')
+            .then(response => response.json())
+            .then(data => {
+                if (data.username) {
+                    username = data.username;
+                }
+                else{
+                    window.location.href='/index.html';
+                }
+            })
+            .catch(error => console.error('Error obteniendo el username:', error));
+        });
+    </script>
 </body>
 </html>

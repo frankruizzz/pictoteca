@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function() {
                   const h2=document.createElement('h2');
                   h2.textContent = "Prueba a buscar otra imagen.";
                   const a = document.createElement('a');
-                  a.setAttribute('href','index.html');
+                  a.setAttribute('href','../index.html');
                   a.textContent = "Regresar a página principal.";
                   document.getElementById('error404').appendChild(h1);
                   document.getElementById('error404').appendChild(h2);

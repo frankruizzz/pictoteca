@@ -18,17 +18,17 @@ if ($con) {
                 header("location: /index.html");
                 $_SESSION['username'] = $username;
             } else {
-                echo "La contraseña ingresada no es correcta.";
+                header("location: /public/login.html?error=contrasena");
             }
         } else {
-            echo "Usuario no encontrado.";
+            header("location: /public/login.html?error=no_usuario");
         }
     } else {
-        echo "Error en la consulta: " . mysqli_error($con);
+        header("location: /public/login.html?error=consulta");
     }
 
     mysqli_close($con);
 } else {
-    echo "Error de conexión a la base de datos.";
+    header("location: /public/login.html?error=errorbd");
 }
 ?>

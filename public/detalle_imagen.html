@@ -19,12 +19,7 @@
                     <span>Inicio</span>
                 </a>
             </div>
-            <div class="header-img">
-                <a href="nuevo.html">
-                    <img src="img/nuevo.png" alt="Crear nueva">
-                    <span>Crear</span>
-                </a>
-            </div>
+            <div id="crea-div"></div>
             <div class="header-img">
                 <a href="explora.html">
                     <img src="img/explora.png" alt="Explorar">
@@ -37,7 +32,7 @@
     <main>
         <div class="error404" id="error404"></div>
         <div class="image-page" id="image-page">
-            <div class="image-container">
+            <div class="image-container" id="image-container">
                 <img id="imagen" src="" alt="Imagen">
             </div>
             <div class="info-container">
@@ -53,7 +48,7 @@
                         <form id="commentForm">
                             <label>Comentar</label>
                             <input type="text" id="commentInput" placeholder="Escribe un comentario...">
-                            <button type="submit">Enviar</button>
+                            <button type="submit" id="buttonComment">Enviar</button>
                         </form>
                     </div>
                 </div>
@@ -64,5 +59,7 @@
     <script src="js/detalle_imagen.js"></script>
     <script src="js/chat.js"></script>
     <script src="http://localhost:4000/socket.io/socket.io.js"></script>
+    <script src="js/mostrar_crud.js"></script>
+    <script src="js/crear.js"></script>
 </body>
 </html>

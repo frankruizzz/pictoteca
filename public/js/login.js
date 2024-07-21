@@ -5,21 +5,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (error==='contrasena') {
         errorMessage.textContent = 'La contraseña ingresada no es correcta.';
+        errorMessage.style.display = 'block';
+        setTimeout(() => {
+        errorMessage.style.display = 'none';
+    }, 10000);
     }
     else if (error === 'no_usuario'){
         errorMessage.textContent = 'Usuario no encontrado.';
+        errorMessage.style.display = 'block';
+        setTimeout(() => {
+        errorMessage.style.display = 'none';
+    }, 10000);
     }
     else if (error === 'consulta'){
         errorMessage.textContent = 'Error en la consulta.';
+        errorMessage.style.display = 'block';
+        setTimeout(() => {
+        errorMessage.style.display = 'none';
+    }, 10000);
     }
     else if (error === 'errorbd'){
         errorMessage.textContent = 'Error de conexión a la base de datos.';
-    }
-    else {
-        errorMessage.textContent = 'Error desconocido.';
-    }
-    errorMessage.style.display = 'block';
-    setTimeout(() => {
+        errorMessage.style.display = 'block';
+        setTimeout(() => {
         errorMessage.style.display = 'none';
     }, 10000);
+    }
 });

@@ -18,14 +18,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $etiqueta2 = isset($_POST['etiqueta2']) ? mysqli_real_escape_string($con, $_POST['etiqueta2']) : '';
             $etiqueta3 = isset($_POST['etiqueta3']) ? mysqli_real_escape_string($con, $_POST['etiqueta3']) : '';
 
-            $target_dir = "pictures/";
+            $target_dir = "../public/pictures/";
             $target_file = $target_dir . basename($_FILES["archivo"]["name"]);
             $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
             $check = getimagesize($_FILES["archivo"]["tmp_name"]);
 
             if ($check !== false) {
                 if ($_FILES["archivo"]["size"] <= 5000000) {
-                    if ($imageFileType == "jpg" || $imageFileType == "png" || $imageFileType == "jpeg") {
+                    if ($imageFileType == "jpg" || $imageFileType == "png" || $imageFileType == "jpeg" || $imageFileType == "jfif") {
                         if (move_uploaded_file($_FILES["archivo"]["tmp_name"], $target_file)) {
                             $sql = "INSERT INTO imagen (nombre, descripcion, direccion, fecha, fk_id_usuario) VALUES ('$nombre', '$descripcion', '$target_file', CURRENT_TIMESTAMP(), $id_usuario)";
                             if (mysqli_query($con, $sql)) {
@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                     mysqli_query($con, $sql3);
                                 }
 
-                                header('location: exito_imagen.html');
+                                header('location: /public/exito_imagen.html');
                             } else {
                                 echo "Error al guardar la información en la base de datos: " . mysqli_error($con);
                             }
@@ -52,16 +52,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             echo "Error al subir el archivo.";
                         }
                     } else {
-                        echo "<script>alert('Solo se permiten archivos JPG, JPEG y PNG.')</script>";
+                        header('location: /public/error_imagen_jpg.html');
                     }
                 } else {
-                    echo "<script>alert('El archivo supera los 5 MB. Añada uno de menor peso.')</script>";
+                    header('location: /public/error_imagen_size.html');
                 }
             } else {
-                echo "<script>alert('Solo se permiten archivos JPG, JPEG y PNG.')</script>";
+                header('location: /public/error_imagen_jpg.html');
             }
         } else {
-            echo "Error: Usuario no encontrado.";
+            header('location: /public/index.html');
         }
     } else {
         header('location: login.php');

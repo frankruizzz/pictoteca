@@ -81,8 +81,19 @@ header .nav-item div span {
 .image-page .image-container img {
     width: 100%;
     border-radius: 5px;
+    margin-bottom: 10px;
 }
 
+.image-page .image-container a {
+    color: #00492e;
+    background-color: #00c0b3;
+    text-decoration: none;
+    align-self: center;
+    margin-left: 60px;
+    margin-right: 60px;
+    border-radius: 5%;
+    padding: 10px;
+}
 .image-page .info-container {
     flex: 1 1 35%;
     max-width: 35%;
@@ -189,4 +200,143 @@ header .nav-item div span {
     border: 2px solid #00492e;
     padding: 10px;
     margin-bottom: 20px;
+}
+
+.like-button {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    background-color: gray;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.like-button.liked {
+    background-color: green;
+}
+
+.like-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+#like-count {
+    margin-left: 10px;
+    font-size: 24px;
+}
+#crea{
+    text-align: center;
+    margin: 50px;
+}
+.nuevo-form{
+    width: 50%;
+    margin: 0 auto;
+    background: #fff;
+    padding: 50px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.nuevo-main input[type="text"],
+        textarea,
+        input[type="file"] {
+            width: 95%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        
+.nuevo-main textarea {
+    resize: vertical;
+}
+        
+.nuevo-main input[type="submit"]{
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #00492e;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+        
+.nuevo-main input[type="submit"]:hover, .editar-main input[type="submit"]:hover {
+    background-color: #007b4e;
+}
+main center a{
+    color: #00492e;
+    font-weight: bold;
+}
+.editar-main {
+    display: flex;
+}
+.editar-form {
+    flex: 1;
+    padding: 20px;
+}
+.editar-main input[type="text"], textarea {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.editar-main input[type="submit"] {
+    display: block;
+    width: 98%;
+    padding: 10px;
+    background-color: #00492e;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+.imagen-editar-container{
+    flex: 0.5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+.imagen-editar-container img{
+    max-width: 100%;
+    height: auto;
+}
+.search-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+#searchInput {
+    width: 300px;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 25px 0 0 25px;
+    outline: none;
+}
+
+#searchButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 0 25px 25px 0;
+    background-color: #007b4e;
+    color: white;
+    cursor: pointer;
+    outline: none;
+}
+#searchButton:hover {
+    background-color: #00c04d;
 }
