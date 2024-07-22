@@ -1,5 +1,4 @@
 <?php
-    /* INDEX PHP PARA RESTO DE PÁGINAS */
     session_start();
     include('conexion.php');
 

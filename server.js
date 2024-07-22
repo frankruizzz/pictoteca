@@ -12,7 +12,6 @@ const io = socketIo(server, {
     }
 });
 
-// NUEVO - COMENTARIOS
 const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',

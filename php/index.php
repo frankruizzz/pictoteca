@@ -1,5 +1,4 @@
 <?php
-/* INDEX PHP PARA INDEX HTML */
     session_start();
     include('conexion.php');
 
